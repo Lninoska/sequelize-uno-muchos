@@ -12,11 +12,11 @@
 // npx sequelize-cli model:generate --name Productos --attributes nombre:string,precio:number,CategoriaId:integer
 
 
-const  {
-    crearCategoria,
-    CrearProducto,
-    obtenerCategoriasConProductos,
-    eliminarCategoria
+const {
+        crearCategoria,
+        CrearProducto,
+        obtenerCategoriasConProductos,
+        eliminarCategoria
 } = require('./controllers/categoriaController')
 
 const main = async () => {
@@ -33,7 +33,7 @@ const main = async () => {
                 await eliminarCategoria(2);
                 const categoriaeliminadas = await obtenerCategoriasConProductos();
                 console.log('Categorias despues de eliminacion:', JSON.stringify(categoriaeliminadas))
-        } catch (error){
+        } catch (error) {
                 console.error('Error:', error)
         }
 }

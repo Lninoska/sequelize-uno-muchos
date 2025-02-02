@@ -1,15 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
-    const Categoria = sequelize.define('Categoria', {
-        nombre: DataTypes.STRING,
+  const categoria = sequelize.define('categoria', {
+    nombre: DataTypes.STRING
+  });
+
+  categoria.associate = function(models) {
+    categoria.hasMany(models.productos, { 
+      foreignKey: 'categoriaId',
+      onDelete: 'CASCADE',
     });
+  };
 
-
-    Categoria.associate = function (models) {
-        Categoria.hasMany(models.Productos, {
-            foreignKey: 'CategoriaId',
-            onDelete: 'CASCADE', 
-        });
-    };
-
-    return Categoria;
+  return categoria;
 };
